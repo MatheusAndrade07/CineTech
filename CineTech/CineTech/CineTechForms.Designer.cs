@@ -94,6 +94,7 @@
             this.mskDataNascimento.Size = new System.Drawing.Size(92, 26);
             this.mskDataNascimento.TabIndex = 1;
             this.mskDataNascimento.ValidatingType = typeof(System.DateTime);
+            this.mskDataNascimento.Leave += new System.EventHandler(this.mskDataNascimento_Leave);
             // 
             // lblDigitarNome
             // 
@@ -137,12 +138,13 @@
             // btnAssistirFilme
             // 
             this.btnAssistirFilme.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssistirFilme.Location = new System.Drawing.Point(20, 176);
+            this.btnAssistirFilme.Location = new System.Drawing.Point(20, 159);
             this.btnAssistirFilme.Name = "btnAssistirFilme";
             this.btnAssistirFilme.Size = new System.Drawing.Size(144, 37);
             this.btnAssistirFilme.TabIndex = 5;
             this.btnAssistirFilme.Text = "Assistir Agora!";
             this.btnAssistirFilme.UseVisualStyleBackColor = true;
+            this.btnAssistirFilme.Click += new System.EventHandler(this.btnAssistirFilme_Click);
             // 
             // btnSelecionarFilme
             // 
@@ -153,6 +155,7 @@
             this.btnSelecionarFilme.TabIndex = 6;
             this.btnSelecionarFilme.Text = "Selecionar Filme";
             this.btnSelecionarFilme.UseVisualStyleBackColor = true;
+            this.btnSelecionarFilme.Click += new System.EventHandler(this.btnSelecionarFilme_Click);
             // 
             // CineTechForms
             // 

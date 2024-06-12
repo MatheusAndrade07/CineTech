@@ -34,25 +34,95 @@ namespace CineTech
         }
         private void ExibirCapaFilme(int indice)
         {
-            // Substitua essa lógica pela exibição real da capa
-            // Ex: pictureBox1.Image = Image.FromFile($"Imagens/{cmbSelecionarFilme.SelectedItem}.jpg");
-            // Aqui você deve carregar a imagem da capa do filme selecionado
 
-            // Assumindo que você tem as imagens das capas na pasta "Imagens" 
-            // e que o nome do arquivo da imagem é o mesmo nome do filme
-            Filme filmeSelecionado = (Filme)cmbSelecionarFilme.SelectedItem;
-            string caminhoDaImagem = $"Imagens/{filmeSelecionado.Nome}.jpg"; // Caminho da imagem da capa
+        }
 
-            try
+        private void btnSelecionarFilme_Click(object sender, EventArgs e)
+        {
+            if (cmbSelecionarFilme.SelectedIndex == -1)
             {
-                pbCartazDoFilme.Image = Image.FromFile(caminhoDaImagem);
+                MessageBox.Show("Por favor, selecione um filme.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch (FileNotFoundException)
+            else
             {
-                // Se o arquivo não for encontrado, exibe uma imagem padrão ou um aviso
-                MessageBox.Show($"Cartaz para '{filmeSelecionado.Nome}' não encontrado.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                pbCartazDoFilme.Image = null; // Remove a imagem da PictureBox
+                ExibirCapaFilme(cmbSelecionarFilme.SelectedIndex);
             }
         }
-    }
+
+        private void mskDataNascimento_Leave(object sender, EventArgs e)
+        {
+            if (mskDataNascimento.MaskFull == false)
+            {
+                MessageBox.Show("Por favor, insira uma data de nascimento válida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                DateTime dataNascimento = DateTime.Parse(mskDataNascimento.Text);
+                DateTime dataAtual = DateTime.Now;
+                TimeSpan diferenca = dataAtual - dataNascimento;
+                int idade = (int)diferenca.TotalDays / 365;
+
+                if (idade < 1)
+                {
+                    MessageBox.Show("Você deve ter pelo menos 1 ano de idade para assistir a filmes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void btnAssistirFilme_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNomeDeUsuario.Text) || mskDataNascimento.MaskFull == false || cmbSelecionarFilme.SelectedIndex == -1)
+            {
+                if (string.IsNullOrEmpty(txtNomeDeUsuario.Text))
+                {
+                    MessageBox.Show("Por favor, digite seu nome.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if (mskDataNascimento.MaskFull == false)
+                {
+                    MessageBox.Show("Por favor, insira uma data de nascimento válida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                if (cmbSelecionarFilme.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Por favor, selecione um filme.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                Filme filmeSelecionado = (Filme)cmbSelecionarFilme.SelectedItem;
+                DateTime dataNascimento = DateTime.Parse(mskDataNascimento.Text);
+                TimeSpan diferenca = DateTime.Now - dataNascimento;
+                int idade = (int)diferenca.TotalDays / 365;
+
+                string classificacao = "";
+
+                if (idade >= filmeSelecionado.IdadeMinima && idade <= filmeSelecionado.IdadeMaxima)
+                {
+                    classificacao = "Classificação permitida!";
+                    classificacao = "Classificação permitida!";
+                    classificacao = "Classificação permitida!";
+                    classificacao = "Classificação permitida!";
+                    classificacao = "Classificação permitida!";
+                    classificacao = "Classificação permitida!";
+                    classificacao = "Classificação permitida!";
+                    classificacao = "Classificação permitida!";
+                    classificacao = "Classificação permitida!";
+                    classificacao = "Classificação permitida!";
+                }
+                else
+                {
+                    classificacao = "Classificação não permitida!";
+                    classificacao = "Classificação não permitida!";
+                    classificacao = "Classificação não permitida!";
+                    classificacao = "Classificação não permitida!";
+                    classificacao = "Classificação não permitida!";
+                    classificacao = "Classificação não permitida!";
+                    classificacao = "Classificação não permitida!";
+                    classificacao = "Classificação não permitida!";
+                    classificacao = "Classificação não permitida!";
+                    classificacao = "Classificação não permitida!";
+                }                
+            }
+        }
+    }    
+    
 }
