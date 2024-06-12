@@ -30,29 +30,32 @@
         {
             this.pbCartazDoFilme = new System.Windows.Forms.PictureBox();
             this.pnlInformacoesDeUsuario = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.txtNomeDeUsuario = new System.Windows.Forms.TextBox();
-            this.mskDataNascimento = new System.Windows.Forms.MaskedTextBox();
-            this.lblDigitarNome = new System.Windows.Forms.Label();
+            this.btnAssistirFilme = new System.Windows.Forms.Button();
             this.lblDigitarIdade = new System.Windows.Forms.Label();
+            this.lblDigitarNome = new System.Windows.Forms.Label();
+            this.mskDataNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.txtNomeDeUsuario = new System.Windows.Forms.TextBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.cmbSelecionarFilme = new System.Windows.Forms.ComboBox();
             this.lblSelecionarFilme = new System.Windows.Forms.Label();
-            this.btnAssistirFilme = new System.Windows.Forms.Button();
             this.btnSelecionarFilme = new System.Windows.Forms.Button();
+            this.lblClassificacao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbCartazDoFilme)).BeginInit();
             this.pnlInformacoesDeUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbCartazDoFilme
             // 
-            this.pbCartazDoFilme.Location = new System.Drawing.Point(877, 134);
+            this.pbCartazDoFilme.Location = new System.Drawing.Point(792, 134);
             this.pbCartazDoFilme.Name = "pbCartazDoFilme";
             this.pbCartazDoFilme.Size = new System.Drawing.Size(309, 416);
+            this.pbCartazDoFilme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCartazDoFilme.TabIndex = 0;
             this.pbCartazDoFilme.TabStop = false;
             // 
             // pnlInformacoesDeUsuario
             // 
+            this.pnlInformacoesDeUsuario.Controls.Add(this.lblClassificacao);
             this.pnlInformacoesDeUsuario.Controls.Add(this.btnAssistirFilme);
             this.pnlInformacoesDeUsuario.Controls.Add(this.lblDigitarIdade);
             this.pnlInformacoesDeUsuario.Controls.Add(this.lblDigitarNome);
@@ -63,25 +66,36 @@
             this.pnlInformacoesDeUsuario.Size = new System.Drawing.Size(477, 216);
             this.pnlInformacoesDeUsuario.TabIndex = 1;
             // 
-            // lblTitulo
+            // btnAssistirFilme
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(61, 35);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(256, 122);
-            this.lblTitulo.TabIndex = 2;
-            this.lblTitulo.Text = "Bem vindo \r\nao CineTech!";
+            this.btnAssistirFilme.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssistirFilme.Location = new System.Drawing.Point(20, 159);
+            this.btnAssistirFilme.Name = "btnAssistirFilme";
+            this.btnAssistirFilme.Size = new System.Drawing.Size(144, 37);
+            this.btnAssistirFilme.TabIndex = 5;
+            this.btnAssistirFilme.Text = "Assistir Agora!";
+            this.btnAssistirFilme.UseVisualStyleBackColor = true;
+            this.btnAssistirFilme.Click += new System.EventHandler(this.btnAssistirFilme_Click);
             // 
-            // txtNomeDeUsuario
+            // lblDigitarIdade
             // 
-            this.txtNomeDeUsuario.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.txtNomeDeUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNomeDeUsuario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeDeUsuario.Location = new System.Drawing.Point(20, 54);
-            this.txtNomeDeUsuario.Name = "txtNomeDeUsuario";
-            this.txtNomeDeUsuario.Size = new System.Drawing.Size(235, 26);
-            this.txtNomeDeUsuario.TabIndex = 0;
+            this.lblDigitarIdade.AutoSize = true;
+            this.lblDigitarIdade.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigitarIdade.Location = new System.Drawing.Point(16, 92);
+            this.lblDigitarIdade.Name = "lblDigitarIdade";
+            this.lblDigitarIdade.Size = new System.Drawing.Size(264, 22);
+            this.lblDigitarIdade.TabIndex = 3;
+            this.lblDigitarIdade.Text = "Digite sua data de nascimento";
+            // 
+            // lblDigitarNome
+            // 
+            this.lblDigitarNome.AutoSize = true;
+            this.lblDigitarNome.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigitarNome.Location = new System.Drawing.Point(16, 18);
+            this.lblDigitarNome.Name = "lblDigitarNome";
+            this.lblDigitarNome.Size = new System.Drawing.Size(208, 22);
+            this.lblDigitarNome.TabIndex = 2;
+            this.lblDigitarNome.Text = "Digite seu nome abaixo";
             // 
             // mskDataNascimento
             // 
@@ -94,27 +108,27 @@
             this.mskDataNascimento.Size = new System.Drawing.Size(92, 26);
             this.mskDataNascimento.TabIndex = 1;
             this.mskDataNascimento.ValidatingType = typeof(System.DateTime);
-            this.mskDataNascimento.Leave += new System.EventHandler(this.mskDataNascimento_Leave);
+            this.mskDataNascimento.TextChanged += new System.EventHandler(this.mskDataNascimento_TextChanged_1);
             // 
-            // lblDigitarNome
+            // txtNomeDeUsuario
             // 
-            this.lblDigitarNome.AutoSize = true;
-            this.lblDigitarNome.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDigitarNome.Location = new System.Drawing.Point(16, 18);
-            this.lblDigitarNome.Name = "lblDigitarNome";
-            this.lblDigitarNome.Size = new System.Drawing.Size(208, 22);
-            this.lblDigitarNome.TabIndex = 2;
-            this.lblDigitarNome.Text = "Digite seu nome abaixo";
+            this.txtNomeDeUsuario.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtNomeDeUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNomeDeUsuario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeDeUsuario.Location = new System.Drawing.Point(20, 54);
+            this.txtNomeDeUsuario.Name = "txtNomeDeUsuario";
+            this.txtNomeDeUsuario.Size = new System.Drawing.Size(235, 26);
+            this.txtNomeDeUsuario.TabIndex = 0;
             // 
-            // lblDigitarIdade
+            // lblTitulo
             // 
-            this.lblDigitarIdade.AutoSize = true;
-            this.lblDigitarIdade.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDigitarIdade.Location = new System.Drawing.Point(16, 92);
-            this.lblDigitarIdade.Name = "lblDigitarIdade";
-            this.lblDigitarIdade.Size = new System.Drawing.Size(264, 22);
-            this.lblDigitarIdade.TabIndex = 3;
-            this.lblDigitarIdade.Text = "Digite sua data de nascimento";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(61, 35);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(256, 122);
+            this.lblTitulo.TabIndex = 2;
+            this.lblTitulo.Text = "Bem vindo \r\nao CineTech!";
             // 
             // cmbSelecionarFilme
             // 
@@ -135,17 +149,6 @@
             this.lblSelecionarFilme.TabIndex = 4;
             this.lblSelecionarFilme.Text = "Selecione seu filme abaixo!";
             // 
-            // btnAssistirFilme
-            // 
-            this.btnAssistirFilme.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssistirFilme.Location = new System.Drawing.Point(20, 159);
-            this.btnAssistirFilme.Name = "btnAssistirFilme";
-            this.btnAssistirFilme.Size = new System.Drawing.Size(144, 37);
-            this.btnAssistirFilme.TabIndex = 5;
-            this.btnAssistirFilme.Text = "Assistir Agora!";
-            this.btnAssistirFilme.UseVisualStyleBackColor = true;
-            this.btnAssistirFilme.Click += new System.EventHandler(this.btnAssistirFilme_Click);
-            // 
             // btnSelecionarFilme
             // 
             this.btnSelecionarFilme.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -156,6 +159,16 @@
             this.btnSelecionarFilme.Text = "Selecionar Filme";
             this.btnSelecionarFilme.UseVisualStyleBackColor = true;
             this.btnSelecionarFilme.Click += new System.EventHandler(this.btnSelecionarFilme_Click);
+            // 
+            // lblClassificacao
+            // 
+            this.lblClassificacao.AutoSize = true;
+            this.lblClassificacao.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClassificacao.Location = new System.Drawing.Point(147, 131);
+            this.lblClassificacao.Name = "lblClassificacao";
+            this.lblClassificacao.Size = new System.Drawing.Size(216, 22);
+            this.lblClassificacao.TabIndex = 8;
+            this.lblClassificacao.Text = "Sua classificação está!!!";
             // 
             // CineTechForms
             // 
@@ -193,6 +206,7 @@
         private System.Windows.Forms.ComboBox cmbSelecionarFilme;
         private System.Windows.Forms.Label lblSelecionarFilme;
         private System.Windows.Forms.Button btnSelecionarFilme;
+        private System.Windows.Forms.Label lblClassificacao;
     }
 }
 

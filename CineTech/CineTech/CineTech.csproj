@@ -52,7 +52,6 @@
     <Compile Include="CineTechForms.Designer.cs">
       <DependentUpon>CineTechForms.cs</DependentUpon>
     </Compile>
-    <Compile Include="Filme.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CineTechForms.resx">
